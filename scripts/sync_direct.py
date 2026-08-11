@@ -203,9 +203,14 @@ def run_exact_garmin_sync():
     activities = api.get_activities(0, 100) or []
     print(f"✓ Retrieved {len(activities)} activities from Garmin Connect server.")
 
+    seen_activity_ids = set()
     inserted_acts = 0
     for act in activities:
         act_id = str(act.get('activityId'))
+        if not act_id or act_id in seen_activity_ids:
+            continue
+        seen_activity_ids.add(act_id)
+
         name = act.get('activityName') or 'Garmin Session'
         type_info = act.get('activityType', {})
         type_key = type_info.get('typeKey', 'running').capitalize() if isinstance(type_info, dict) else 'Running'
@@ -231,24 +236,27 @@ def run_exact_garmin_sync():
         load = float(act.get('activityTrainingLoad') or (dist_km * 8.5))
         ai_summary = f"Actual Garmin Connect Activity: \"{name}\". Distance: {dist_km:.2f} km, Duration: {dur_s//60}m {dur_s%60}s, Avg HR: {avg_hr} bpm."
 
-        cursor.execute("""
-            INSERT INTO Activity (
-                id, garminActivityId, date, title, type, distance, duration, movingTime,
-                paceSecondsPerKm, speedMs, elevationGain, elevationLoss, avgHr, maxHr,
-                calories, aerobicTrainingEffect, anaerobicTrainingEffect, trainingLoad,
-                avgCadence, strideLength, groundContactTime, verticalOscillation, runningPower,
-                temperature, weatherCondition, shoeName, splitsJson, lapsJson, gpxPointsJson,
-                aiPerformanceScore, aiAnalysisSummary, createdAt, updatedAt
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-        """, (
-            str(uuid.uuid4()), act_id, start_dt, name, type_key, dist_m, dur_s, moving_s,
-            pace_sec, speed_ms, ele_gain, ele_loss, avg_hr, max_hr,
-            calories, 3.2, 1.1, load,
-            cadence, 1.12, 225.0, 8.5, power,
-            24.0, 'Clear', 'Garmin Gear', None, None, None,
-            8.7, ai_summary, now_iso, now_iso
-        ))
-        inserted_acts += 1
+        try:
+            cursor.execute("""
+                INSERT OR REPLACE INTO Activity (
+                    id, garminActivityId, date, title, type, distance, duration, movingTime,
+                    paceSecondsPerKm, speedMs, elevationGain, elevationLoss, avgHr, maxHr,
+                    calories, aerobicTrainingEffect, anaerobicTrainingEffect, trainingLoad,
+                    avgCadence, strideLength, groundContactTime, verticalOscillation, runningPower,
+                    temperature, weatherCondition, shoeName, splitsJson, lapsJson, gpxPointsJson,
+                    aiPerformanceScore, aiAnalysisSummary, createdAt, updatedAt
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+            """, (
+                str(uuid.uuid4()), act_id, start_dt, name, type_key, dist_m, dur_s, moving_s,
+                pace_sec, speed_ms, ele_gain, ele_loss, avg_hr, max_hr,
+                calories, 3.2, 1.1, load,
+                cadence, 1.12, 225.0, 8.5, power,
+                24.0, 'Clear', 'Garmin Gear', None, None, None,
+                8.7, ai_summary, now_iso, now_iso
+            ))
+            inserted_acts += 1
+        except Exception as e:
+            print(f"Notice inserting activity {act_id}: {e}")
 
     # 5. Insert Registered & Potential Future Goals into SQLite
     goals_data = [

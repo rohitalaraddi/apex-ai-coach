@@ -9,13 +9,14 @@ export async function POST() {
   try {
     const projectRoot = process.cwd();
     const scriptPath = path.join(projectRoot, 'scripts', 'sync_direct.py');
-    const pythonBin = '/Library/Frameworks/Python.framework/Versions/3.12/bin/python3';
+    const pythonBin = process.env.PYTHON_PATH || '/Library/Frameworks/Python.framework/Versions/3.12/bin/python3';
 
     console.log(`Triggering live Garmin Connect sync via script: ${scriptPath}...`);
 
-    const { stdout, stderr } = await execAsync(`${pythonBin} ${scriptPath}`, {
+    const { stdout, stderr } = await execAsync(`"${pythonBin}" "${scriptPath}"`, {
       cwd: projectRoot,
-      env: { ...process.env },
+      env: { ...process.env, PATH: `/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${process.env.PATH || ''}` },
+      timeout: 120000,
     });
 
     console.log('Live Sync stdout:', stdout);
