@@ -1,0 +1,236 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AthleteProfile {
+  id                    String   @id @default(uuid())
+  name                  String   @default("Rohit")
+  age                   Int      @default(30)
+  height                Float    @default(178.0) // cm
+  weight                Float    @default(71.0)  // kg
+  sex                   String   @default("Male")
+  timeZone              String   @default("Asia/Kolkata")
+  location              String   @default("Bengaluru, India")
+  
+  // Running Baselines & PBs
+  pb5k                  String?  @default("21:45")
+  pb10k                 String?  @default("45:30")
+  pbHalfMarathon        String?  @default("1:42:15")
+  pbMarathon            String?  @default("3:48:00")
+  targetWeeklyMileage   Float    @default(55.0)  // km
+  maxHistoricalMileage  Float    @default(75.0)  // km
+  typicalFrequency      Int      @default(5)     // days/week
+  preferredTrainingDays String   @default("Tue,Wed,Thu,Sat,Sun")
+  currentPhase          String   @default("Marathon Build Phase 2")
+
+  // Physiological
+  restingHrBaseline     Int      @default(54)
+  hrvBaseline           Float    @default(68.0)  // ms
+  vo2Max                Float    @default(50.0)
+  fitnessAge            Float?   @default(24.5)
+  maxHr                 Int      @default(188)
+  lactateThresholdHr    Int?     @default(168)
+  sleepBaselineHours    Float    @default(7.5)
+
+  // Injury & Restrictions
+  injuryHistory         String?  @default("Mild right Achilles tendinitis (resolved May 2025)")
+  currentRestrictions   String?  @default("Avoid back-to-back hard downhill interval sessions")
+
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model Activity {
+  id                      String   @id @default(uuid())
+  garminActivityId        String?  @unique
+  date                    DateTime
+  title                   String
+  type                    String   @default("Running") // Running, Cycling, Swimming, Walking, Strength
+  distance                Float    // meters
+  duration                Int      // seconds
+  movingTime              Int      // seconds
+  paceSecondsPerKm        Float    // sec/km
+  speedMs                 Float    // m/s
+  elevationGain           Float    // meters
+  elevationLoss           Float    // meters
+  avgHr                   Int
+  maxHr                   Int
+  calories                Int
+  aerobicTrainingEffect   Float    @default(3.2)
+  anaerobicTrainingEffect Float    @default(1.1)
+  trainingLoad            Float    @default(120.0)
+  
+  // Running Dynamics
+  avgCadence              Int?     // spm
+  strideLength            Float?   // meters
+  groundContactTime       Float?   // ms
+  verticalOscillation     Float?   // cm
+  runningPower            Int?     // Watts
+
+  // Environment & Gear
+  temperature             Float?   // °C
+  weatherCondition        String?
+  shoeName                String?
+
+  // Deep Data
+  splitsJson              String?  // JSON array of split data
+  lapsJson                String?  // JSON array of lap data
+  gpxPointsJson           String?  // JSON trackpoints array
+
+  // AI Coaching
+  aiPerformanceScore      Float?   // 0 - 10
+  aiAnalysisSummary       String?  // AI post-workout report text
+
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+model DailyHealth {
+  id                  String   @id @default(uuid())
+  date                DateTime @unique
+  restingHr           Int
+  hrvNightlyAvg       Float    // ms
+  hrvStatus           String   @default("Balanced") // Balanced, Low, Unbalanced
+  hrv7DayAvg          Float
+  
+  // Sleep Metrics
+  sleepDurationSeconds Int
+  sleepScore          Int      // 0 - 100
+  deepSleepSeconds    Int
+  remSleepSeconds     Int
+  lightSleepSeconds   Int
+  awakeSleepSeconds   Int
+
+  // Recovery & Stress
+  bodyBatteryStart    Int      // 0 - 100
+  bodyBatteryEnd      Int      // 0 - 100
+  bodyBatteryMin      Int
+  bodyBatteryMax      Int
+  avgStress           Int      // 0 - 100
+  trainingReadiness   Int      // Calculated 0 - 100
+
+  // Activity summary
+  steps               Int
+  activeCalories      Int
+  floorsClimbed       Int?     @default(12)
+  intensityMinutes    Int?     @default(45)
+
+  // AI Daily Summary
+  aiMorningVerdict    String?
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model SubjectiveLog {
+  id              String   @id @default(uuid())
+  date            DateTime @unique
+  overallFeeling  Int      // 1 (Exhausted) to 5 (Excellent)
+  perceivedFatigue Int     // 1 to 10
+  stressLevel     Int      // 1 to 10
+
+  // Soreness Ratings (0 to 10)
+  quadsSoreness   Int      @default(0)
+  calvesSoreness  Int      @default(0)
+  hamstringsSoreness Int   @default(0)
+  glutesSoreness  Int      @default(0)
+  hipsSoreness    Int      @default(0)
+  kneesSoreness   Int      @default(0)
+  shinsSoreness   Int      @default(0)
+  anklesSoreness  Int      @default(0)
+  feetSoreness    Int      @default(0)
+
+  painLocation    String?
+  painSeverity    Int?     @default(0) // 0 to 10
+  painDescription String?
+  notes           String?
+
+  createdAt       DateTime @default(now())
+}
+
+model TrainingPlan {
+  id              String   @id @default(uuid())
+  title           String
+  targetGoal      String   // e.g., "Sub-3:55 Marathon"
+  targetDate      DateTime
+  totalWeeks      Int      @default(12)
+  currentWeek     Int      @default(4)
+  status          String   @default("Active") // Active, Completed, Paused
+  aiStrategyNotes String?
+
+  workouts        PlannedWorkout[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model PlannedWorkout {
+  id                String       @id @default(uuid())
+  trainingPlanId    String
+  trainingPlan      TrainingPlan @relation(fields: [trainingPlanId], references: [id], onDelete: Cascade)
+  scheduledDate     DateTime
+  dayOfWeek         String       // Mon, Tue, etc.
+  title             String       // e.g., "12 km Tempo Run"
+  category          String       // Easy, Interval, Tempo, Long Run, Rest, Cross
+  targetDistanceKm  Float
+  targetDurationMin Int?
+  targetPaceRange   String?      // e.g. "5:15 - 5:30 /km"
+  targetHrZone      String?      // e.g. "Zone 3 (145 - 158 bpm)"
+  workoutPurpose    String       // e.g., "Aerobic threshold stimulus and lactate clearance"
+  isCompleted       Boolean      @default(false)
+  completedActivityId String?
+
+  createdAt         DateTime     @default(now())
+}
+
+model Goal {
+  id                String   @id @default(uuid())
+  title             String   // e.g., "Sub-4:00 Marathon"
+  category          String   // Running, Health, Fitness
+  targetValue       String   // "3:59:59"
+  baselineValue     String   // "4:12:00"
+  currentCapability String   // "4:04:30"
+  deadline          DateTime
+  milestonesJson    String?  // JSON milestones
+  aiStrategy        String?
+  status            String   @default("In Progress") // In Progress, Achieved, On Hold
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Equipment {
+  id                  String   @id @default(uuid())
+  name                String   // e.g. "Adidas Boston 12"
+  brand               String   // Adidas
+  model               String   // Boston 12
+  purchaseDate        DateTime
+  accumulatedDistance Float    @default(0.0) // km
+  retirementThreshold Float    @default(650.0) // km
+  status              String   @default("Active") // Active, Retired
+
+  createdAt           DateTime @default(now())
+}
+
+model AiConversation {
+  id        String      @id @default(uuid())
+  title     String      @default("Coaching Session")
+  messages  AiMessage[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model AiMessage {
+  id             String         @id @default(uuid())
+  conversationId String
+  conversation   AiConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           String         // user, assistant, system
+  content        String
+  groundedDataJson String?      // Referenced metrics JSON (e.g. pace, HR, sleep)
+  createdAt      DateTime       @default(now())
+}
