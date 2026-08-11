@@ -61,34 +61,34 @@ export default function TrainingPlanPage() {
     });
   };
 
-  // FULL 27-WEEK MASTER ROADMAP (Aug 10, 2026 - Feb 17, 2027)
+  // FULL 27-WEEK MASTER ROADMAP (Aug 10, 2026 - Feb 17, 2027) — 3:1 Progressive Overload Periodization
   const master27Weeks = [
-    { weekNum: 1, dateRange: 'Aug 10 - Aug 16, 2026', title: 'Block 1: Week 1 - Aerobic Base Ramping', targetVolume: '36 km', longRunKm: '24 km', isDeload: false, isRace: false, phase: 'Bengaluru Build' },
-    { weekNum: 2, dateRange: 'Aug 17 - Aug 23, 2026', title: 'Block 1: Week 2 - Aerobic Base Ramping', targetVolume: '42 km', longRunKm: '27 km', isDeload: false, isRace: false, phase: 'Bengaluru Build' },
-    { weekNum: 3, dateRange: 'Aug 24 - Aug 30, 2026', title: 'Block 1: Week 3 - Progressive Peak Volume', targetVolume: '48 km', longRunKm: '30 km', isDeload: false, isRace: false, phase: 'Bengaluru Build' },
-    { weekNum: 4, dateRange: 'Aug 31 - Sep 06, 2026', title: 'Block 1: Week 4 - DELOAD & RECOVERY WEEK (-35%)', targetVolume: '32 km', longRunKm: '18 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
-    { weekNum: 5, dateRange: 'Sep 07 - Sep 13, 2026', title: 'Block 2: Week 5 - PEAK BENGALURU LONG RUN (34 KM)', targetVolume: '52 km', longRunKm: '34 km', isDeload: false, isRace: false, phase: 'Peak Build' },
-    { weekNum: 6, dateRange: 'Sep 14 - Sep 20, 2026', title: 'Block 2: Week 6 - MARATHON TAPER 1', targetVolume: '36 km', longRunKm: '20 km', isDeload: true, isRace: false, phase: 'Bengaluru Taper' },
+    { weekNum: 1, dateRange: 'Aug 10 - Aug 16, 2026', title: 'Block 1: Week 1 - Aerobic Base Ramping (Build 1)', targetVolume: '36 km', longRunKm: '18 km', isDeload: false, isRace: false, phase: 'Bengaluru Build' },
+    { weekNum: 2, dateRange: 'Aug 17 - Aug 23, 2026', title: 'Block 1: Week 2 - Aerobic Base Ramping (Build 2)', targetVolume: '42 km', longRunKm: '21 km', isDeload: false, isRace: false, phase: 'Bengaluru Build' },
+    { weekNum: 3, dateRange: 'Aug 24 - Aug 30, 2026', title: 'Block 1: Week 3 - Progressive Peak Base (Build 3)', targetVolume: '48 km', longRunKm: '24 km', isDeload: false, isRace: false, phase: 'Bengaluru Build' },
+    { weekNum: 4, dateRange: 'Aug 31 - Sep 06, 2026', title: 'Block 1: Week 4 - DELOAD & RECOVERY WEEK (-35%)', targetVolume: '31 km', longRunKm: '15 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
+    { weekNum: 5, dateRange: 'Sep 07 - Sep 13, 2026', title: 'Block 2: Week 5 - PEAK BENGALURU LONG RUN (28 KM)', targetVolume: '52 km', longRunKm: '28 km', isDeload: false, isRace: false, phase: 'Peak Build' },
+    { weekNum: 6, dateRange: 'Sep 14 - Sep 20, 2026', title: 'Block 2: Week 6 - MARATHON TAPER 1', targetVolume: '36 km', longRunKm: '18 km', isDeload: true, isRace: false, phase: 'Bengaluru Taper' },
     { weekNum: 7, dateRange: 'Sep 21 - Sep 27, 2026', title: 'Block 2: Week 7 - RACE WEEK: WIPRO BENGALURU MARATHON', targetVolume: '42.2 km Race', longRunKm: '42.2 km RACE', isDeload: false, isRace: true, phase: 'RACE WEEK' },
     { weekNum: 8, dateRange: 'Sep 28 - Oct 04, 2026', title: 'Block 3: Week 8 - DELOAD WEEK: Post-Marathon Recovery', targetVolume: '20 km', longRunKm: '8 km', isDeload: true, isRace: false, phase: 'Post-Marathon Flush' },
-    { weekNum: 9, dateRange: 'Oct 05 - Oct 11, 2026', title: 'Block 3: Week 9 - Delhi Half Speed Flush', targetVolume: '38 km', longRunKm: '16 km', isDeload: false, isRace: false, phase: 'Delhi Speed Flush' },
+    { weekNum: 9, dateRange: 'Oct 05 - Oct 11, 2026', title: 'Block 3: Week 9 - Delhi Half Speed Flush', targetVolume: '36 km', longRunKm: '16 km', isDeload: false, isRace: false, phase: 'Delhi Speed Flush' },
     { weekNum: 10, dateRange: 'Oct 12 - Oct 18, 2026', title: 'Block 3: Week 10 - RACE WEEK: VEDANTA DELHI HALF MARATHON', targetVolume: '21.1 km Race', longRunKm: '21.1 km RACE', isDeload: false, isRace: true, phase: 'RACE WEEK' },
     { weekNum: 11, dateRange: 'Oct 19 - Oct 25, 2026', title: 'Block 4: Week 11 - DELOAD & RECOVERY WEEK (-40%)', targetVolume: '22 km', longRunKm: '10 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
-    { weekNum: 12, dateRange: 'Oct 26 - Nov 01, 2026', title: 'Block 4: Week 12 - TMM Base Foundation', targetVolume: '45 km', longRunKm: '22 km', isDeload: false, isRace: false, phase: 'TMM Build' },
-    { weekNum: 13, dateRange: 'Nov 02 - Nov 08, 2026', title: 'Block 4: Week 13 - TMM Base Expansion', targetVolume: '52 km', longRunKm: '26 km', isDeload: false, isRace: false, phase: 'TMM Build' },
-    { weekNum: 14, dateRange: 'Nov 09 - Nov 15, 2026', title: 'Block 4: Week 14 - TMM Peak Base Volume', targetVolume: '58 km', longRunKm: '30 km', isDeload: false, isRace: false, phase: 'TMM Build' },
-    { weekNum: 15, dateRange: 'Nov 16 - Nov 22, 2026', title: 'Block 4: Week 15 - DELOAD WEEK (-35%)', targetVolume: '38 km', longRunKm: '18 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
-    { weekNum: 16, dateRange: 'Nov 23 - Nov 29, 2026', title: 'Block 4: Week 16 - Pedder Road Hill Reps & Threshold', targetVolume: '62 km', longRunKm: '32 km', isDeload: false, isRace: false, phase: 'TMM Build' },
-    { weekNum: 17, dateRange: 'Nov 30 - Dec 06, 2026', title: 'Block 4: Week 17 - TMM Specific Pace Inoculation', targetVolume: '66 km', longRunKm: '34 km', isDeload: false, isRace: false, phase: 'TMM Build' },
-    { weekNum: 18, dateRange: 'Dec 07 - Dec 13, 2026', title: 'Block 4: Week 18 - PEAK TMM VOLUME (70 KM)', targetVolume: '70 km', longRunKm: '36 km', isDeload: false, isRace: false, phase: 'TMM Peak Build' },
-    { weekNum: 19, dateRange: 'Dec 14 - Dec 20, 2026', title: 'Block 4: Week 19 - DELOAD WEEK (-35%)', targetVolume: '44 km', longRunKm: '20 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
-    { weekNum: 20, dateRange: 'Dec 21 - Dec 27, 2026', title: 'Block 4: Week 20 - TMM Taper Phase 1', targetVolume: '52 km', longRunKm: '25 km', isDeload: true, isRace: false, phase: 'TMM Taper' },
-    { weekNum: 21, dateRange: 'Dec 28 - Jan 03, 2027', title: 'Block 4: Week 21 - TMM Taper Phase 2', targetVolume: '38 km', longRunKm: '16 km', isDeload: true, isRace: false, phase: 'TMM Taper' },
-    { weekNum: 22, dateRange: 'Jan 04 - Jan 10, 2027', title: 'Block 4: Week 22 - Final Race Taper & Carb Load', targetVolume: '25 km', longRunKm: '10 km', isDeload: true, isRace: false, phase: 'TMM Taper' },
+    { weekNum: 12, dateRange: 'Oct 26 - Nov 01, 2026', title: 'Block 4: Week 12 - TMM Base Foundation (Build 1)', targetVolume: '44 km', longRunKm: '22 km', isDeload: false, isRace: false, phase: 'TMM Build' },
+    { weekNum: 13, dateRange: 'Nov 02 - Nov 08, 2026', title: 'Block 4: Week 13 - TMM Base Expansion (Build 2)', targetVolume: '50 km', longRunKm: '25 km', isDeload: false, isRace: false, phase: 'TMM Build' },
+    { weekNum: 14, dateRange: 'Nov 09 - Nov 15, 2026', title: 'Block 4: Week 14 - TMM Peak Base Volume (Build 3)', targetVolume: '56 km', longRunKm: '28 km', isDeload: false, isRace: false, phase: 'TMM Build' },
+    { weekNum: 15, dateRange: 'Nov 16 - Nov 22, 2026', title: 'Block 4: Week 15 - DELOAD WEEK (-35%)', targetVolume: '36 km', longRunKm: '18 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
+    { weekNum: 16, dateRange: 'Nov 23 - Nov 29, 2026', title: 'Block 4: Week 16 - Pedder Road Hill Reps (Build 4)', targetVolume: '60 km', longRunKm: '30 km', isDeload: false, isRace: false, phase: 'TMM Build' },
+    { weekNum: 17, dateRange: 'Nov 30 - Dec 06, 2026', title: 'Block 4: Week 17 - TMM Specific Pace Inoculation (Build 5)', targetVolume: '65 km', longRunKm: '33 km', isDeload: false, isRace: false, phase: 'TMM Build' },
+    { weekNum: 18, dateRange: 'Dec 07 - Dec 13, 2026', title: 'Block 4: Week 18 - PEAK TMM VOLUME (70 KM - Build 6)', targetVolume: '70 km', longRunKm: '35 km', isDeload: false, isRace: false, phase: 'TMM Peak Build' },
+    { weekNum: 19, dateRange: 'Dec 14 - Dec 20, 2026', title: 'Block 4: Week 19 - DELOAD WEEK (-35%)', targetVolume: '44 km', longRunKm: '22 km', isDeload: true, isRace: false, phase: 'Deload / Adaptation' },
+    { weekNum: 20, dateRange: 'Dec 21 - Dec 27, 2026', title: 'Block 4: Week 20 - TMM Taper Phase 1', targetVolume: '40 km', longRunKm: '20 km', isDeload: true, isRace: false, phase: 'TMM Taper' },
+    { weekNum: 21, dateRange: 'Dec 28 - Jan 03, 2027', title: 'Block 4: Week 21 - TMM Taper Phase 2', targetVolume: '30 km', longRunKm: '14 km', isDeload: true, isRace: false, phase: 'TMM Taper' },
+    { weekNum: 22, dateRange: 'Jan 04 - Jan 10, 2027', title: 'Block 4: Week 22 - Final Race Taper & Carb Load', targetVolume: '20 km', longRunKm: '8 km', isDeload: true, isRace: false, phase: 'TMM Taper' },
     { weekNum: 23, dateRange: 'Jan 11 - Jan 17, 2027', title: 'Block 4: Week 23 - RACE WEEK: TATA MUMBAI MARATHON (TMM 2027)', targetVolume: '42.2 km Race', longRunKm: '42.2 km RACE', isDeload: false, isRace: true, phase: 'RACE WEEK' },
     { weekNum: 24, dateRange: 'Jan 18 - Jan 24, 2027', title: 'Block 5: Week 24 - DELOAD WEEK: Post-TMM Ultra Transition', targetVolume: '22 km', longRunKm: '10 km', isDeload: true, isRace: false, phase: 'Ultra Transition' },
-    { weekNum: 25, dateRange: 'Jan 25 - Jan 31, 2027', title: 'Block 5: Week 25 - Back-to-Back Long Runs (30k Sat + 18k Sun)', targetVolume: '55 km', longRunKm: '30 km Sat + 18 km Sun', isDeload: false, isRace: false, phase: 'Lonavala Ultra Build' },
-    { weekNum: 26, dateRange: 'Feb 01 - Feb 07, 2027', title: 'Block 5: Week 26 - Trail Elevation & 60g Carbs Fueling Protocol', targetVolume: '45 km', longRunKm: '26 km Trail', isDeload: false, isRace: false, phase: 'Lonavala Ultra Build' },
+    { weekNum: 25, dateRange: 'Jan 25 - Jan 31, 2027', title: 'Block 5: Week 25 - Back-to-Back Long Runs (28k Sat + 16k Sun)', targetVolume: '55 km', longRunKm: '28 km Sat + 16 km Sun', isDeload: false, isRace: false, phase: 'Lonavala Ultra Build' },
+    { weekNum: 26, dateRange: 'Feb 01 - Feb 07, 2027', title: 'Block 5: Week 26 - Trail Elevation & 60g Carbs Fueling Protocol', targetVolume: '42 km', longRunKm: '22 km Trail', isDeload: false, isRace: false, phase: 'Lonavala Ultra Build' },
     { weekNum: 27, dateRange: 'Feb 08 - Feb 17, 2027', title: 'Block 5: Week 27 - RACE WEEK: TATA ULTRA LONAVALA 50 KM', targetVolume: '50 km Ultra Race', longRunKm: '50 km ULTRA', isDeload: false, isRace: true, phase: 'ULTRA RACE WEEK' },
   ];
 
@@ -113,100 +113,20 @@ export default function TrainingPlanPage() {
     }
   };
 
-  // Helper generator for 7-day microcycle with explicit Warm-Up, Main Set, and Cooldown
+  // Helper generator for 7-day microcycle: Monday & Friday Rest, Sunday Long Run, Tuesday/Wednesday/Thursday/Saturday distribution
   const get7DaySchedule = (w: typeof master27Weeks[0]) => {
     const isRace = w.isRace;
     const isDeload = w.isDeload;
     const dates = getCalendarDatesForWeek(w.dateRange);
     const todayDayName = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase();
 
-    if (w.weekNum === 1) {
-      return [
-        {
-          day: 'MONDAY',
-          date: dates[0] || 'Aug 10',
-          isToday: todayDayName === 'MONDAY',
-          category: 'Rest & Autonomic Recovery',
-          totalDistance: '0 km',
-          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
-          mainSet: { structure: 'Rest & Autonomic Nervous System Reset', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
-          cooldown: { timeDist: '15 mins Mobility', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
-          strength: '15-min Ankle & Hip Mobility: Couch Stretch (3x45s), Thoracic Rotations (2x10), Ankle Wall Mobilization (2x12).',
-          rationale: 'Resets autonomic nervous system post-21.2 km long run. Restores nightly HRV (54 ms).'
-        },
-        {
-          day: 'TUESDAY',
-          date: dates[1] || 'Aug 11',
-          isToday: todayDayName === 'TUESDAY',
-          category: 'Zone 2 Base Run + Runner Strength',
-          totalDistance: '7 km',
-          warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 7:50 /km'), hr: 'Zone 1 (<130 bpm)' },
-          mainSet: { structure: '5 km Continuous Aerobic Base Run', pace: getEmpiricalPace('6:50 - 7:15 /km'), hr: 'Zone 2 (130 - 154 bpm)' },
-          cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-          strength: '30-min Lower Body Heavy Strength: Romanian Deadlifts (4x8 @70% 1RM), Bulgarian Split Squats (3x10/leg), Heavy Standing Calf Raises (4x12).',
-          rationale: 'Verified Garmin Zone 2 pace (6:50-7:15/km). Stimulates mitochondrial capillarization; heavy RDLs & split squats fortify glutes.'
-        },
-        {
-          day: 'WEDNESDAY',
-          date: dates[2] || 'Aug 12',
-          isToday: todayDayName === 'WEDNESDAY',
-          category: 'Aerobic Threshold Intervals',
-          totalDistance: '9 km total',
-          warmup: { timeDist: '1.5 km (10 mins)', pace: getEmpiricalPace('7:15 - 7:45 /km'), hr: 'Zone 1/2 (125-140 bpm)' },
-          mainSet: { structure: '3 x 2 km Threshold Intervals w/ 2 min jog recovery @ 7:30/km', pace: getEmpiricalPace('5:45 - 6:10 /km'), hr: 'Zone 4 (167 - 180 bpm)' },
-          cooldown: { timeDist: '1.5 km (10 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-          strength: 'Post-run Dynamic Hamstring Swings (2x15) & Foam Rolling Calves/IT Band.',
-          rationale: 'Verified Garmin Zone 4 Threshold pace (5:45-6:10/km). Shifts lactate threshold rightward to support Sub-4:15 Marathon pace.'
-        },
-        {
-          day: 'THURSDAY',
-          date: dates[3] || 'Aug 13',
-          isToday: todayDayName === 'THURSDAY',
-          category: 'Active Zone 2 Recovery Flush',
-          totalDistance: '6 km',
-          warmup: { timeDist: '1 km (7.5 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-          mainSet: { structure: '4 km Continuous Recovery Flush', pace: getEmpiricalPace('7:15 - 7:45 /km'), hr: 'Zone 1/2 (130 - 145 bpm)' },
-          cooldown: { timeDist: '1 km (7.5 mins)', pace: getEmpiricalPace('7:45 - 8:15 /km'), hr: 'Zone 1 (<130 bpm)' },
-          strength: '20-min Core Anti-Rotation & Pelvic Stability: Pallof Press (3x12), Single-Leg Glute Bridges (3x12), Side Planks (3x45s).',
-          rationale: 'Flushes metabolic waste from Wednesday threshold work; Pallof press eliminates pelvic drop under late-marathon fatigue.'
-        },
-        {
-          day: 'FRIDAY',
-          date: dates[4] || 'Aug 14',
-          isToday: todayDayName === 'FRIDAY',
-          category: 'Rest & Glycogen Replenishment',
-          totalDistance: '0 km',
-          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
-          mainSet: { structure: 'Complete Muscle Rest & Glycogen Supercompensation', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
-          cooldown: { timeDist: '20 mins Foam Rolling', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
-          strength: 'Full Body Foam Rolling & Light Static Stretching.',
-          rationale: 'Restores glycogen stores to 100% capacity and lowers neuromuscular fatigue prior to Sunday long run.'
-        },
-        {
-          day: 'SATURDAY',
-          date: dates[5] || 'Aug 15',
-          isToday: todayDayName === 'SATURDAY',
-          category: 'Shakeout Run & Dynamic Activation',
-          totalDistance: '4 km',
-          warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-          mainSet: { structure: '2 km Easy Shakeout Run w/ 4x50m light strides', pace: getEmpiricalPace('7:00 - 7:20 /km'), hr: 'Zone 1/2 (125-140 bpm)' },
-          cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:45 - 8:15 /km'), hr: 'Zone 1 (<130 bpm)' },
-          strength: 'Dynamic Leg Swings & Glute Activation Band Walks (2x15).',
-          rationale: 'Primes nervous system for Sunday key long run.'
-        },
-        {
-          day: 'SUNDAY',
-          date: dates[6] || 'Aug 16',
-          isToday: todayDayName === 'SUNDAY',
-          category: 'Progressive Long Run (KEY WORKOUT)',
-          totalDistance: '24 km',
-          warmup: { timeDist: '2 km (14 mins)', pace: getEmpiricalPace('7:15 - 7:30 /km'), hr: 'Zone 1/2 (130-145 bpm)' },
-          mainSet: { structure: '19 km Aerobic Base @ 6:30-6:45/km + Last 3 km Progression @ 6:15/km', pace: getEmpiricalPace('6:30 - 6:45 /km'), hr: 'Zone 3 (155 - 166 bpm)' },
-          cooldown: { timeDist: '3 km (22 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-          strength: 'Post-Long Run Cold Water Leg Flush & 15-min Gentle Hip Release.',
-          rationale: 'Verified Garmin Doddaballapur 21.2k Long Run pace (6:39/km @ 167 bpm). Expands Sunday long run capacity to 24 km.'
-        },
-      ];
+    // Parse numerical target volume and long run distance
+    const totalKm = parseFloat(w.targetVolume) || 36;
+    let longKm = parseFloat(w.longRunKm) || 18;
+    if (isRace) {
+      if (w.title.includes('HALF')) longKm = 21.1;
+      else if (w.title.includes('ULTRA')) longKm = 50;
+      else longKm = 42.2;
     }
 
     if (isRace) {
@@ -214,176 +134,184 @@ export default function TrainingPlanPage() {
         {
           day: 'MONDAY',
           date: dates[0],
-          isToday: false,
+          isToday: todayDayName === 'MONDAY',
           category: 'Rest & Mental Preparation',
           totalDistance: '0 km',
-          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1' },
-          mainSet: { structure: 'Rest & Mental Strategy Review', pace: 'Rest', hr: 'Zone 1' },
-          cooldown: { timeDist: '15 mins Mobility', pace: 'Rest', hr: 'Zone 1' },
-          strength: 'Deep breathing & foam rolling.',
-          rationale: 'Rest & glycogen loading focus.'
+          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+          mainSet: { structure: 'Rest & Mental Strategy Review', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+          cooldown: { timeDist: '15 mins Mobility', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
+          strength: 'Deep breathing & thoracic mobility.',
+          rationale: 'Glycogen preservation and autonomic nervous system priming.'
         },
         {
           day: 'TUESDAY',
           date: dates[1],
-          isToday: false,
-          category: 'Easy Strides & Sharpening',
+          isToday: todayDayName === 'TUESDAY',
+          category: 'Easy Sharpening & Strides',
           totalDistance: '5 km',
-          warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1' },
-          mainSet: { structure: '3 km Easy Sharpening + 4x100m strides', pace: getEmpiricalPace('6:40 /km'), hr: 'Zone 2' },
-          cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1' },
-          strength: 'Dynamic strides & ankle drills.',
-          rationale: 'Neuromuscular speed activation.'
+          warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1 (<130 bpm)' },
+          mainSet: { structure: '3 km Easy Sharpening + 4x100m strides', pace: getEmpiricalPace('6:40 /km'), hr: 'Zone 2 (130-154 bpm)' },
+          cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1 (<130 bpm)' },
+          strength: 'Dynamic leg swings & light stride drills.',
+          rationale: 'Neuromuscular speed activation without muscle fatigue.'
         },
         {
           day: 'WEDNESDAY',
           date: dates[2],
-          isToday: false,
-          category: 'Carb Loading & Hydration',
+          isToday: todayDayName === 'WEDNESDAY',
+          category: 'Rest & Glycogen Supercompensation',
           totalDistance: '0 km',
-          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1' },
-          mainSet: { structure: 'Glycogen Loading Protocol & Hydration', pace: 'Rest', hr: 'Zone 1' },
-          cooldown: { timeDist: '10 mins Mobility', pace: 'Rest', hr: 'Zone 1' },
-          strength: 'Light mobility.',
-          rationale: 'Glycogen supercompensation protocol.'
+          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+          mainSet: { structure: 'Glycogen Supercompensation & Hydration', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+          cooldown: { timeDist: '10 mins Mobility', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
+          strength: 'Light static stretching & foam rolling.',
+          rationale: 'Restores muscle glycogen stores to 100% capacity.'
         },
         {
           day: 'THURSDAY',
           date: dates[3],
-          isToday: false,
-          category: 'Easy Race Shakeout',
-          totalDistance: '4 km',
-          warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1' },
-          mainSet: { structure: '2 km Easy Shakeout', pace: getEmpiricalPace('7:00 /km'), hr: 'Zone 1/2' },
-          cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:45 /km'), hr: 'Zone 1' },
-          strength: 'Stretch.',
-          rationale: 'Keep legs loose.'
+          isToday: todayDayName === 'THURSDAY',
+          category: 'Pre-Race Shakeout',
+          totalDistance: '3 km',
+          warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1 (<130 bpm)' },
+          mainSet: { structure: '1 km Pre-Race Shakeout', pace: getEmpiricalPace('7:00 /km'), hr: 'Zone 1/2' },
+          cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:45 /km'), hr: 'Zone 1 (<130 bpm)' },
+          strength: 'Full body mobility flow.',
+          rationale: 'Keeps legs loose and blood flowing.'
         },
         {
           day: 'FRIDAY',
           date: dates[4],
-          isToday: false,
-          category: 'Expo & Complete Rest',
+          isToday: todayDayName === 'FRIDAY',
+          category: 'Race Expo & Complete Rest',
           totalDistance: '0 km',
-          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1' },
-          mainSet: { structure: 'Race Expo, Bib Pickup & Mental Focus', pace: 'Rest', hr: 'Zone 1' },
-          cooldown: { timeDist: 'Rest', pace: 'Rest', hr: 'Zone 1' },
-          strength: 'Rest.',
-          rationale: 'Bib pickup & mental lock-in.'
+          warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+          mainSet: { structure: 'Bib Pickup, Race Kit Prep & Complete Rest', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+          cooldown: { timeDist: 'Rest', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
+          strength: 'Complete rest.',
+          rationale: 'Mental lock-in & bib pickup.'
         },
         {
           day: 'SATURDAY',
           date: dates[5],
-          isToday: false,
-          category: '2 km Pre-Race Activation',
+          isToday: todayDayName === 'SATURDAY',
+          category: '2 km Final Activation',
           totalDistance: '2 km',
-          warmup: { timeDist: '0.5 km (3.5 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1' },
-          mainSet: { structure: '1 km Activation Run', pace: getEmpiricalPace('7:10 /km'), hr: 'Zone 1' },
-          cooldown: { timeDist: '0.5 km (3.5 mins)', pace: getEmpiricalPace('7:45 /km'), hr: 'Zone 1' },
-          strength: 'Activation.',
+          warmup: { timeDist: '0.5 km (3.5 mins)', pace: getEmpiricalPace('7:30 /km'), hr: 'Zone 1 (<130 bpm)' },
+          mainSet: { structure: '1 km Easy Activation Run', pace: getEmpiricalPace('7:10 /km'), hr: 'Zone 1 (<130 bpm)' },
+          cooldown: { timeDist: '0.5 km (3.5 mins)', pace: getEmpiricalPace('7:45 /km'), hr: 'Zone 1 (<130 bpm)' },
+          strength: 'Dynamic leg swings.',
           rationale: 'Final pre-race shakeout.'
         },
         {
           day: 'SUNDAY',
           date: dates[6],
-          isToday: false,
+          isToday: todayDayName === 'SUNDAY',
           category: `OFFICIAL RACE DAY: ${w.title}`,
-          totalDistance: w.longRunKm,
-          warmup: { timeDist: '15 mins Dynamic Drills & 1 km Jog', pace: getEmpiricalPace('7:15 /km'), hr: 'Zone 1/2' },
+          totalDistance: `${longKm} km`,
+          warmup: { timeDist: '15 mins Dynamic Warm-Up', pace: getEmpiricalPace('7:15 /km'), hr: 'Zone 1/2' },
           mainSet: { structure: `OFFICIAL RACE DAY: ${w.title}`, pace: getEmpiricalPace('Target Race Pace'), hr: 'Zone 3/4' },
-          cooldown: { timeDist: 'Post-Race Walk & Medal Photo!', pace: 'Walk', hr: 'Zone 1' },
-          strength: 'MEDAL FINISH & CELEBRATION!',
-          rationale: `RACE DAY! Execute your targeted race pace strategy!`
+          cooldown: { timeDist: 'Post-Race Medal Celebration & Walk', pace: 'Walk', hr: 'Zone 1' },
+          strength: 'MEDAL FINISH & RECOVERY FLUSH!',
+          rationale: `RACE DAY! Execute your targeted race strategy!`
         },
       ];
     }
 
-    // Default template for progressive / deload weeks using verified Garmin HR vs Pace
+    // For progressive & deload weeks, calculate exact daily mileage breakdown:
+    // Monday: 0 km, Friday: 0 km, Sunday: longKm km
+    // Remaining volume = totalKm - longKm distributed across Tue, Wed, Thu, Sat
+    const remKm = Math.max(0, totalKm - longKm);
+    const tueKm = Math.round(remKm * 0.28);
+    const wedKm = Math.round(remKm * 0.42);
+    const thuKm = Math.round(remKm * 0.18);
+    const satKm = Math.max(0, Math.round(remKm - (tueKm + wedKm + thuKm)));
+
     return [
       {
         day: 'MONDAY',
         date: dates[0],
-        isToday: false,
+        isToday: todayDayName === 'MONDAY',
         category: 'Rest & Autonomic Recovery',
         totalDistance: '0 km',
-        warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1' },
-        mainSet: { structure: 'Rest & Autonomic Recovery', pace: 'Rest', hr: 'Zone 1' },
-        cooldown: { timeDist: '15 mins Mobility', pace: 'Rest', hr: 'Zone 1' },
-        strength: '15-min Ankle & Hip Mobility Flow.',
-        rationale: 'Post-Sunday long run HRV recovery & tissue repair.'
+        warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+        mainSet: { structure: 'Rest & Autonomic Nervous System Reset', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+        cooldown: { timeDist: '15 mins Mobility', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
+        strength: '15-min Ankle & Hip Mobility: Couch Stretch (3x45s), Thoracic Rotations (2x10), Ankle Wall Mobilization (2x12).',
+        rationale: 'Resets autonomic nervous system post-Sunday long run. Restores nightly HRV.'
       },
       {
         day: 'TUESDAY',
         date: dates[1],
-        isToday: false,
-        category: isDeload ? 'Easy Zone 2 Run' : 'Zone 2 Base Run + Strength',
-        totalDistance: isDeload ? '6 km' : '8 km',
+        isToday: todayDayName === 'TUESDAY',
+        category: isDeload ? 'Easy Zone 2 Base Run' : 'Zone 2 Base Run + Strength',
+        totalDistance: `${tueKm} km`,
         warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 7:50 /km'), hr: 'Zone 1 (<130 bpm)' },
-        mainSet: { structure: isDeload ? '4 km Aerobic Base Run' : '6 km Aerobic Base Run', pace: getEmpiricalPace('6:50 - 7:15 /km'), hr: 'Zone 2 (130 - 154 bpm)' },
+        mainSet: { structure: `${Math.max(1, tueKm - 2)} km Continuous Aerobic Base Run`, pace: getEmpiricalPace('6:50 - 7:15 /km'), hr: 'Zone 2 (130 - 154 bpm)' },
         cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-        strength: 'Heavy RDLs (4x8), Bulgarian Split Squats (3x10), Calf Raises (4x12).',
-        rationale: 'Verified Garmin Zone 2 pace (6:50-7:15/km). Mitochondrial capillarization.'
+        strength: '30-min Lower Body Heavy Strength: Romanian Deadlifts (4x8), Bulgarian Split Squats (3x10), Standing Calf Raises (4x12).',
+        rationale: 'Verified Garmin Zone 2 pace (6:50-7:15/km). Stimulates mitochondrial capillarization; heavy RDLs & split squats fortify glutes.'
       },
       {
         day: 'WEDNESDAY',
         date: dates[2],
-        isToday: false,
-        category: isDeload ? 'Easy Aerobic Flush' : 'Threshold / Pace Workout',
-        totalDistance: isDeload ? '6 km' : '10 km',
-        warmup: { timeDist: '1.5 km (10 mins)', pace: getEmpiricalPace('7:15 - 7:45 /km'), hr: 'Zone 1/2' },
-        mainSet: { structure: isDeload ? '3 km Easy Aerobic Flush' : '3 x 2 km Threshold Intervals w/ 2 min rest @ 7:30/km', pace: getEmpiricalPace('5:45 - 6:15 /km'), hr: 'Zone 4 (167 - 180 bpm)' },
+        isToday: todayDayName === 'WEDNESDAY',
+        category: isDeload ? 'Easy Aerobic Flush' : 'Aerobic Threshold Intervals',
+        totalDistance: `${wedKm} km`,
+        warmup: { timeDist: '1.5 km (10 mins)', pace: getEmpiricalPace('7:15 - 7:45 /km'), hr: 'Zone 1/2 (125-140 bpm)' },
+        mainSet: { structure: isDeload ? `${Math.max(1, wedKm - 3)} km Easy Aerobic Flush` : `3 x 2 km Threshold Intervals w/ 2 min jog recovery @ 7:30/km`, pace: getEmpiricalPace('5:45 - 6:10 /km'), hr: 'Zone 4 (167 - 180 bpm)' },
         cooldown: { timeDist: '1.5 km (10 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
-        strength: 'Core anti-rotation & hip flexor release.',
-        rationale: 'Verified Garmin Zone 4 Threshold pace (5:45-6:15/km).'
+        strength: 'Post-run Dynamic Hamstring Swings (2x15) & Foam Rolling Calves/IT Band.',
+        rationale: 'Shifts lactate threshold rightward to support marathon race pace.'
       },
       {
         day: 'THURSDAY',
         date: dates[3],
-        isToday: false,
+        isToday: todayDayName === 'THURSDAY',
         category: 'Active Zone 2 Recovery Flush',
-        totalDistance: '6 km',
-        warmup: { timeDist: '1 km (7.5 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1' },
-        mainSet: { structure: '4 km Zone 2 Recovery Flush', pace: getEmpiricalPace('7:15 - 7:45 /km'), hr: 'Zone 1/2' },
-        cooldown: { timeDist: '1 km (7.5 mins)', pace: getEmpiricalPace('7:45 - 8:15 /km'), hr: 'Zone 1' },
-        strength: 'Pallof Cable Press (3x12) & Glute Bridges.',
-        rationale: 'Metabolic waste flush & pelvic stability.'
+        totalDistance: `${thuKm} km`,
+        warmup: { timeDist: '1 km (7.5 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
+        mainSet: { structure: `${Math.max(1, thuKm - 2)} km Continuous Recovery Flush`, pace: getEmpiricalPace('7:15 - 7:45 /km'), hr: 'Zone 1/2 (130 - 145 bpm)' },
+        cooldown: { timeDist: '1 km (7.5 mins)', pace: getEmpiricalPace('7:45 - 8:15 /km'), hr: 'Zone 1 (<130 bpm)' },
+        strength: '20-min Core Anti-Rotation & Pelvic Stability: Pallof Press (3x12), Single-Leg Glute Bridges (3x12), Side Planks (3x45s).',
+        rationale: 'Flushes metabolic waste from Wednesday threshold work; Pallof press eliminates pelvic drop under late-marathon fatigue.'
       },
       {
         day: 'FRIDAY',
         date: dates[4],
-        isToday: false,
+        isToday: todayDayName === 'FRIDAY',
         category: 'Rest & Glycogen Replenishment',
         totalDistance: '0 km',
-        warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1' },
-        mainSet: { structure: 'Rest & Glycogen Replenishment', pace: 'Rest', hr: 'Zone 1' },
-        cooldown: { timeDist: 'Rest', pace: 'Rest', hr: 'Zone 1' },
-        strength: 'Full Body Foam Rolling & Static Stretch.',
-        rationale: 'Glycogen loading for Sunday long run.'
+        warmup: { timeDist: 'N/A', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+        mainSet: { structure: 'Complete Muscle Rest & Glycogen Supercompensation', pace: 'Rest', hr: 'Zone 1 (<130 bpm)' },
+        cooldown: { timeDist: '20 mins Foam Rolling', pace: 'N/A', hr: 'Zone 1 (<130 bpm)' },
+        strength: 'Full Body Foam Rolling & Light Static Stretching.',
+        rationale: 'Restores glycogen stores to 100% capacity and lowers neuromuscular fatigue prior to Sunday long run.'
       },
       {
         day: 'SATURDAY',
         date: dates[5],
-        isToday: false,
+        isToday: todayDayName === 'SATURDAY',
         category: 'Shakeout Run & Dynamic Activation',
-        totalDistance: '4 km',
-        warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1' },
-        mainSet: { structure: '2 km Shakeout Run', pace: getEmpiricalPace('7:00 - 7:20 /km'), hr: 'Zone 1/2' },
-        cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:45 - 8:15 /km'), hr: 'Zone 1' },
-        strength: 'Dynamic leg swings & glute band walks.',
-        rationale: 'Neuromuscular priming for Sunday long run.'
+        totalDistance: `${satKm} km`,
+        warmup: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
+        mainSet: { structure: `${Math.max(1, satKm - 2)} km Easy Shakeout Run w/ 4x50m light strides`, pace: getEmpiricalPace('7:00 - 7:20 /km'), hr: 'Zone 1/2 (125-140 bpm)' },
+        cooldown: { timeDist: '1 km (7 mins)', pace: getEmpiricalPace('7:45 - 8:15 /km'), hr: 'Zone 1 (<130 bpm)' },
+        strength: 'Dynamic Leg Swings & Glute Activation Band Walks (2x15).',
+        rationale: 'Primes nervous system for Sunday key long run.'
       },
       {
         day: 'SUNDAY',
         date: dates[6],
-        isToday: false,
-        category: `${w.longRunKm} KEY SUNDAY LONG RUN`,
-        totalDistance: w.longRunKm,
-        warmup: { timeDist: '2 km (14 mins)', pace: getEmpiricalPace('7:15 - 7:30 /km'), hr: 'Zone 1/2' },
-        mainSet: { structure: `${w.longRunKm} Progressive Long Run`, pace: getEmpiricalPace('6:30 - 6:45 /km'), hr: 'Zone 3 (155 - 166 bpm)' },
-        cooldown: { timeDist: '2 km (15 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1' },
-        strength: 'Cold Leg Flush & Gentle Hip Release.',
-        rationale: `SUNDAY KEY LONG RUN! Verified Garmin Doddaballapur pace (6:39/km @ 167 bpm).`
-      },
+        isToday: todayDayName === 'SUNDAY',
+        category: isDeload ? `${longKm} km RECOVERY LONG RUN` : `${longKm} km KEY SUNDAY LONG RUN`,
+        totalDistance: `${longKm} km`,
+        warmup: { timeDist: '2 km (14 mins)', pace: getEmpiricalPace('7:15 - 7:30 /km'), hr: 'Zone 1/2 (130-145 bpm)' },
+        mainSet: { structure: `${Math.max(1, longKm - 5)} km Aerobic Base @ 6:30-6:45/km + Last 3 km Progression @ 6:15/km`, pace: getEmpiricalPace('6:30 - 6:45 /km'), hr: 'Zone 3 (155 - 166 bpm)' },
+        cooldown: { timeDist: '3 km (22 mins)', pace: getEmpiricalPace('7:30 - 8:00 /km'), hr: 'Zone 1 (<130 bpm)' },
+        strength: 'Post-Long Run Cold Water Leg Flush & 15-min Gentle Hip Release.',
+        rationale: `Verified Garmin Doddaballapur 21.2k Long Run pace (6:39/km @ 167 bpm). Key Sunday long run of ${longKm} km!`
+      }
     ];
   };
 
